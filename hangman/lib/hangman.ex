@@ -2,7 +2,7 @@
 defmodule Hangman do
   alias Hangman.Impl.Game
 
-  @type game :: any
+  @opaque game :: Game.t
   @type tally :: %{
     turns_left: integer,
     game_state: state,
