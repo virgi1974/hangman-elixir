@@ -17,9 +17,10 @@ defmodule Hangman.Impl.Game do
   )
   def new_game do
     # syntax to create a structure
-    %Hangman.Impl.Game{
+    %__MODULE__{
       # overwriting specific keys
       letters: Dictionary.pick_random_word |> String.codepoints()
     }
   end
+
 end
