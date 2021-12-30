@@ -1,6 +1,6 @@
 defmodule Hangman.Impl.Game do
   # Hangman.Impl.Game.t
-  @type t :: %Hangman.Impl.Game{
+  @type t :: %__MODULE__{
     turns_left: integer,
     game_state: Hangman.state,
     letters: list(String.t),
@@ -11,15 +11,17 @@ defmodule Hangman.Impl.Game do
   # it will be the data structure the module returns -> %Hangman.Impl.Game{}
   defstruct(
     turns_left: 7,
-    game_state: :initialising,
+    game_state: :initializing,
     letters: [],
     used: MapSet.new() #this is a set cause the words should not be used again
   )
   def new_game do
-    # syntax to create a structure
+    new_game(Dictionary.pick_random_word)
+  end
+
+    def new_game(word) do
     %__MODULE__{
-      # overwriting specific keys
-      letters: Dictionary.pick_random_word |> String.codepoints()
+      letters: word |> String.codepoints()
     }
   end
 
