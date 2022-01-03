@@ -82,7 +82,7 @@ defmodule Hangman.Impl.Game do
   defp maybe_won(true), do: :won
   defp maybe_won(false), do: :good_guess
 
-  defp tally(game) do
+  def tally(game) do
     %{
       turns_left: game.turns_left,
       game_state: game.game_state,
