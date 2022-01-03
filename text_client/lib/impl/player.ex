@@ -31,13 +31,10 @@ defmodule TextClient.Impl.Player do
     IO.puts(current_word(tally))
 
     # 3 - get the next guess
-    guess = get_guess
-
     # 4 - make a move
-    { updated_game, updated_tally } = Hangman.make_move(game, guess)
-
     # 5 - call itself again interact()
-    interact({ updated_game, updated_tally })
+    Hangman.make_move(game, get_guess())
+      |> interact()
   end
 
   ###################### feedback_for ###################
