@@ -29,10 +29,11 @@ defmodule TextClient.Impl.Player do
     # 1 - give some feedback
     IO.puts feedback_for(tally)
 
-    # display the current word
+    # 2 - display the current word
     IO.puts(current_word(tally))
 
-    # get the next guess
+    # 3 - get the next guess
+    guess = get_guess
 
     # make a move
 
@@ -57,5 +58,12 @@ defmodule TextClient.Impl.Player do
       "    turns left: ", tally.turns_left |> to_string,
       "    used so far: ", tally.used |> Enum.join(",")
     ]
+  end
+
+  ###################### get_guess ###################
+  def get_guess do
+    IO.gets("Next letter: ")
+    |> String.trim() # to remove the new line character
+    |> String.downcase()
   end
 end
