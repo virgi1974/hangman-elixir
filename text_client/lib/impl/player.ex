@@ -30,6 +30,7 @@ defmodule TextClient.Impl.Player do
     IO.puts feedback_for(tally)
 
     # display the current word
+    IO.puts(current_word(tally))
 
     # get the next guess
 
@@ -48,4 +49,13 @@ defmodule TextClient.Impl.Player do
   def feedback_for(%{ game_state: :good_guess }), do: "Good guess!"
   def feedback_for(%{ game_state: :bad_guess }), do: "Sorry, that letter is not in the word"
   def feedback_for(%{ game_state: :already_used }), do: "You already used that letter"
+
+  ###################### current_word ###################
+  def current_word(tally) do
+    [
+      "Word so far: ", tally.letters |> Enum.join(" "),
+      "    turns left: ", tally.turns_left |> to_string,
+      "    used so far: ", tally.used |> Enum.join(",")
+    ]
+  end
 end
