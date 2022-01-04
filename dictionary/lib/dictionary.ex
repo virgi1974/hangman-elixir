@@ -1,10 +1,12 @@
 defmodule Dictionary do
-  @word_list "assets/words.txt"
-    |> File.read!()
-    |> String.split(~r/\n/, trim: true)
+  alias Dictionary.Impl.WordList
+  @opaque t :: WordList.t
 
-  def pick_random_word do
-    @word_list
-      |> Enum.random()
-  end
+  @opaque words :: List
+
+  @spec start() :: t
+  defdelegate start(), to:  WordList, as: :word_list
+
+  @spec random_word(t) :: String.t
+  defdelegate random_word(words), to:  WordList
 end
