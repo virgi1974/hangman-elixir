@@ -20,7 +20,7 @@ defmodule Hangman.Impl.Game do
   ##################### new_game #####################
   @spec new_game() :: t
   def new_game do
-    new_game(Dictionary.pick_random_word)
+    new_game(Dictionary.random_word)
   end
 
   @spec new_game(String.t) :: t
