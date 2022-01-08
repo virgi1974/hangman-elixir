@@ -1,4 +1,5 @@
 defmodule Hangman.Runtime.Server do
+  @type t :: pid
   alias Hangman.Impl.Game
   use GenServer # this macro tells Elixir that this module
   # can be used as a server
@@ -10,6 +11,7 @@ defmodule Hangman.Runtime.Server do
     # and then inside that process, it is going to callback to
     # our init function
     GenServer.start_link(__MODULE__, nil)
+    # this will return the pid of the created server
   end
 
   ###### server process code
