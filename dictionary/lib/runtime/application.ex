@@ -2,7 +2,7 @@ defmodule Dictionary.Runtime.Application do
   use Application
 
   def start(_type, _args) do
-
+    IO.puts "Starting Dictionary app"
     children = [
       # Dictionary.Runtime.Server -> name of the module (with a start_link function to be called)
       # [] -> arguments to pass to the start_link funcition

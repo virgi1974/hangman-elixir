@@ -6,7 +6,7 @@ defmodule Hangman.Runtime.Server do
 
   ###### client process code
 
-  def start_link do
+  def start_link(_) do
     # GenServer is going to create a brand new process,
     # and then inside that process, it is going to callback to
     # our init function
